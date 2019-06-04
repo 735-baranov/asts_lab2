@@ -42,23 +42,20 @@ int test(int a,int b,int c,int d,int e, int x){
 
 int main() {
 
-	if(OPERATION_MODE==1){
+	#if(OPERATION_MODE==1)
 		//stack_params
   		int x = test(1,2,3,4,5,6);
-	}
 
-	if(OPERATION_MODE==2){
+	#elif(OPERATION_MODE==2)
 		//arrays
 	  	int mas[1344];
 	  	init(mas);
-	}
 
-	if(OPERATION_MODE==3){
+	#elif(OPERATION_MODE==3)
 		//rec
   		rec(5);
-	}
 
-	if(OPERATION_MODE==4){
+	#elif(OPERATION_MODE==4)
 		//two_stack_pointers
 		asm(
 		    "MOVS R0, #0x2 \n"
@@ -69,7 +66,7 @@ int main() {
 		    "MOVS R0, #0x0 \n"
 		    "MSR CONTROL, R0 \n"
 		);
-	}
+	#endif
   
   return 0;
 }
